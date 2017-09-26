@@ -2,14 +2,34 @@
 #include <deque>
 #include <algorithm>
 using namespace std;
+/*
+Problem:
+
+Given a set of arrays of size N and an integer K,
+you have to find the maximum integer for each and every 
+contiguous subarray of size K for each of the given arrays.
+
+example input: 3 4 5 8 1 4 10
+
+the contiguous subarrays of size 4 are:
+{3,4,5,8},{4,5,8,1},{5,8,1,4} and {8,1,4,10}. 
+The 4 maximum element of subarray of size 4 are: 8 8 8 10.
+
+This is the final O(n) solution which uses a deque to 
+store the index of the largest value in each window,
+and removes this value from queue as soon as it is out of the 
+current window.
+
+*/
+
+
+
 void printKMax(int arr[], int n, int k){
-   //Write your code here.
     deque<int> d(k);
     int i;
     for(i = 0; i < k; i++){
-        while((!d.empty()) && arr[i] >= arr[d.back()] ){//find the index of the max value of the first window
-            d.pop_back();
-        }
+        //find the index of the max value of the first window
+        while((!d.empty()) && arr[i] >= arr[d.back()] ){ d.pop_back();}
         d.push_back(i);
     }
     for(;i < n + 1; i++){
