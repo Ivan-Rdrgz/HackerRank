@@ -1,2 +1,2 @@
 # HackerRank
-I will be posting the solutions for HackerRAnk Problems that i find interesting 
+I will be posting the solutions for HackerRank Problems that I find interesting 
